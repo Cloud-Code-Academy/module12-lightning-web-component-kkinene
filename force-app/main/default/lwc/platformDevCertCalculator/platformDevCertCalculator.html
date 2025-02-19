@@ -1,0 +1,49 @@
+<template>
+    <!-- Process -->
+     
+     <lightning-card  title="PD1 Calculator">
+        <!-- Process-->
+        <lightning-button 
+            variant="brand" 
+            label="Calculate" 
+            slot="actions" 
+            onclick={calculateScore}
+        ></lightning-button>
+        <!---Input information-->
+        <div class="slds-p-horizontal_small">
+            <lightning-input 
+                type="number" 
+                label="Developer Fundamentals: 23%" 
+                name="devFundamentals" 
+                value={devFundamentalScore}
+                onchange={handleChange}
+
+            ></lightning-input>
+            <lightning-input 
+                type="number" 
+                label="Process Automation: 30%" 
+                name="processAuto"
+                value={processAutomationScore}
+                onchange={handleChange}
+
+            ></lightning-input>
+            <lightning-input 
+                type="number" 
+                label="User Interface: 25%" 
+                name="userInterface"                 
+                value={UserInterfaceScore}
+                onchange={handleChange}
+            ></lightning-input>
+            <lightning-input 
+                type="number" 
+                label="Testing, Debugging, and Deployment: 22%" name="testDebugDeploy"
+                value={testingScore}
+                onchange={handleChange}
+
+            ></lightning-input>
+        </div>
+            <!-- Display results-->
+
+        <p slot="footer">Certification Score: <span style="color: red">{certificationScore}%</span></p>
+    </lightning-card>
+</template>
