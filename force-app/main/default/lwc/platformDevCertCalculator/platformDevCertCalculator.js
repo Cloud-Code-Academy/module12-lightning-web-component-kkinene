@@ -7,7 +7,7 @@ export default class PlatformDevCertCalculator extends LightningElement {
 
     devFundamentalScore=50;
     processAutomationScore=50;
-    UserInterfaceScore=50;
+    userInterfaceScore=50;
     testingScore=50;
     
     certificationScore=90;
@@ -15,25 +15,26 @@ export default class PlatformDevCertCalculator extends LightningElement {
     calculateScore(){
         let devFundWeightScore = this.devFundamentalScore * devFundWeight;
         let processAutoWeightScore = this.processAutomationScore * processAutoWeight;
-        let userIntWeightScore =  this.UserInterfaceScore * userIntWeight;
+        let userIntWeightScore =  this.userInterfaceScore * userIntWeight;
         let testDebugWeightScore = this.testingScore * testDebugWeight;
-        this.certificationScore = devFundWeightScore + userIntWeightScore + testDebugWeightScore + processAutoWeightScore;
+        
+        
+        this.certificationScore = devFundWeightScore + processAutoWeightScore + userIntWeightScore + testDebugWeightScore;
     }
 
     handleChange(event){
         console.log(event.target.name, event.target.value);
-        console.log(event.target.type);
-        console.log(event.target.label);
+        
 
         const inputName = event.target.name;
         let value = Number(event.target.value);
         if( inputName == 'devFundamentals'){
             this.devFundamentalScore = value; 
-        } else if( inputName == 'processAutomationScore'){
+        } else if( inputName == 'processAuto'){
             this.processAutomationScore = value; 
-        } else if( inputName == 'userInterfaceScore'){
-            this.UserInterfaceScore = value; 
-        } else if( inputName == 'testingScore'){
+        } else if( inputName == 'userInterface'){
+            this.userInterfaceScore = value; 
+        } else if( inputName == 'testDebugDeploy'){
             this.testingScore = value; 
         }
     }
