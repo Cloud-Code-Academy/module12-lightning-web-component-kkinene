@@ -10,7 +10,7 @@ export default class PlatformDevCertCalculator extends LightningElement {
     userInterfaceScore=50;
     testingScore=50;
     
-    certificationScore=90;
+    certificationScore=50;
 
     calculateScore(){
         let devFundWeightScore = this.devFundamentalScore * devFundWeight;
