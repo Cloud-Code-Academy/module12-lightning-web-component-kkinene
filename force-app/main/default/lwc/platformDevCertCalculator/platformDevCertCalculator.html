@@ -1,0 +1,119 @@
+<template>
+    <!-- Outer container to control width -->
+    <div class="slds-grid slds-wrap slds-p-around_medium">
+        <div class="slds-col slds-size_1-of-5">
+            <lightning-card>
+                <div slot="title" class="slds-text-align_center slds-p-vertical_medium">
+                    <h1 class="slds-text-heading_x-small slds-text-title_caps resultText">PD1 calculator
+                    </h1>
+                </div>
+                
+                <!-- Grid layout for inputs -->
+                <div class="slds-grid slds-wrap slds-p-horizontal_small">
+                    <!-- Developer Fundamentals -->
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_x-small">
+                        <label class="slds-form-element__label slds-text-title_bold" for="devFundamentals">
+                            Developer Fundamentals: 23%
+                        </label>
+                        <lightning-input 
+                            type="number" 
+                            name="devFundamentals" 
+                            value={devFundamentalScore}
+                            onchange={handleChange}
+                            min="0"
+                            max="100"
+                            variant="label-hidden"
+                            id="devFundamentals"
+                            message-when-range-underflow="Please enter a positive number less than or equal to 100"
+                            message-when-range-overflow="Please enter a positive number less than or equal to 100">
+                        </lightning-input>
+                    </div>
+
+                    <!-- Process Automation -->
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_x-small">
+                        <label class="slds-form-element__label slds-text-title_bold" for="processAuto">
+                            Process Automation: 30%
+                        </label>
+                        <lightning-input 
+                            type="number" 
+                            name="processAuto"
+                            value={processAutomationScore}
+                            onchange={handleChange}
+                            min="0"
+                            max="100"
+                            variant="label-hidden"
+                            id="processAuto"
+                            message-when-range-underflow="Please enter a positive number less than or equal to 100"
+                            message-when-range-overflow="Please enter a positive number less than or equal to 100">
+                        </lightning-input>
+                    </div>
+
+                    <!-- User Interface -->
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_x-small">
+                        <label class="slds-form-element__label slds-text-title_bold" for="userInterface">
+                            User Interface: 25%
+                        </label>
+                        <lightning-input 
+                            type="number" 
+                            name="userInterface"
+                            value={userInterfaceScore}
+                            onchange={handleChange}
+                            min="0"
+                            max="100"
+                            variant="label-hidden"
+                            id="userInterface"
+                            message-when-range-underflow="Please enter a positive number less than or equal to 100"
+                            message-when-range-overflow="Please enter a positive number less than or equal to 100">
+                        </lightning-input>
+                    </div>
+
+                    <!-- Testing and Debugging -->
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_x-small">
+                        <label class="slds-form-element__label slds-text-title_bold" for="testDebugDeploy">
+                            Testing, Debugging, and Deployment: 22%
+                        </label>
+                        <lightning-input 
+                            type="number" 
+                            name="testDebugDeploy"
+                            value={testingScore}
+                            onchange={handleChange}
+                            min="0"
+                            max="100"
+                            variant="label-hidden"
+                            id="testDebugDeploy"
+                            message-when-range-underflow="Please enter a positive number less than or equal to 100"
+                            message-when-range-overflow="Please enter a positive number less than or equal to 100">
+                        </lightning-input>
+                    </div>
+                </div>
+
+                <!-- Centered Calculate button -->
+                <div class="slds-grid slds-grid_align-center slds-p-vertical_small">
+                    <lightning-button 
+                        variant="brand" 
+                        label="Calculate" 
+                        onclick={calculateScore}>
+                    </lightning-button>
+                </div>
+
+                <!-- Footer with Certification Results and Score -->
+                <div slot="footer" class="slds-text-align_center slds-p-vertical_medium">
+                    <p class="slds-text-body_small slds-text-title_caps resultText">
+            Certification
+        </p>
+
+        <p class={finalScoreClass}>
+            Final Score: {certificationScore}%
+        </p>
+                    <ul class="slds-text-align_left slds-text-heading_small slds-p-top_medium slds-box">
+                        <li><strong>Resources:</strong></li>
+                        <li><a href="https://trailhead.salesforce.com/en/credentials/platformdeveloperi" target="_blank">PD1 Exam Guide</a></li>
+                        <li><a href="https://focusonforce.com/platform-developer-1-study-guide/" target="_blank">PD1 Study Guide</a></li>
+                        <li><a href="https://courses.salesforcementor.com/p/salesforce-development-apex-fundamentals" target="_blank">Salesforce Mentor</a></li>
+                    </ul>
+                </div>
+
+            </lightning-card>
+        </div>
+    </div>
+</template>
