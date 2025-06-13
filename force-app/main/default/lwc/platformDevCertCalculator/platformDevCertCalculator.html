@@ -2,9 +2,15 @@
     <!-- Outer container to control width -->
     <div class="slds-grid slds-wrap slds-p-around_medium">
         <div class="slds-col slds-size_1-of-5">
-            <lightning-card title="PD1 Calculator">
+            <lightning-card>
+                <div slot="title" class="slds-text-align_center slds-p-vertical_medium">
+                    <h1 class="slds-text-heading_x-small slds-text-title_caps resultText">PD1 calculator
+                    </h1>
+                </div>
+                
                 <!-- Grid layout for inputs -->
                 <div class="slds-grid slds-wrap slds-p-horizontal_small">
+                    <!-- Developer Fundamentals -->
                     <div class="slds-col slds-size_1-of-1 slds-p-around_x-small">
                         <label class="slds-form-element__label slds-text-title_bold" for="devFundamentals">
                             Developer Fundamentals: 23%
@@ -14,11 +20,16 @@
                             name="devFundamentals" 
                             value={devFundamentalScore}
                             onchange={handleChange}
+                            min="0"
+                            max="100"
                             variant="label-hidden"
-                            id="devFundamentals">
+                            id="devFundamentals"
+                            message-when-range-underflow="Please enter a positive number less than or equal to 100"
+                            message-when-range-overflow="Please enter a positive number less than or equal to 100">
                         </lightning-input>
                     </div>
 
+                    <!-- Process Automation -->
                     <div class="slds-col slds-size_1-of-1 slds-p-around_x-small">
                         <label class="slds-form-element__label slds-text-title_bold" for="processAuto">
                             Process Automation: 30%
@@ -28,11 +39,16 @@
                             name="processAuto"
                             value={processAutomationScore}
                             onchange={handleChange}
+                            min="0"
+                            max="100"
                             variant="label-hidden"
-                            id="processAuto">
+                            id="processAuto"
+                            message-when-range-underflow="Please enter a positive number less than or equal to 100"
+                            message-when-range-overflow="Please enter a positive number less than or equal to 100">
                         </lightning-input>
                     </div>
 
+                    <!-- User Interface -->
                     <div class="slds-col slds-size_1-of-1 slds-p-around_x-small">
                         <label class="slds-form-element__label slds-text-title_bold" for="userInterface">
                             User Interface: 25%
@@ -42,11 +58,16 @@
                             name="userInterface"
                             value={userInterfaceScore}
                             onchange={handleChange}
+                            min="0"
+                            max="100"
                             variant="label-hidden"
-                            id="userInterface">
+                            id="userInterface"
+                            message-when-range-underflow="Please enter a positive number less than or equal to 100"
+                            message-when-range-overflow="Please enter a positive number less than or equal to 100">
                         </lightning-input>
                     </div>
 
+                    <!-- Testing and Debugging -->
                     <div class="slds-col slds-size_1-of-1 slds-p-around_x-small">
                         <label class="slds-form-element__label slds-text-title_bold" for="testDebugDeploy">
                             Testing, Debugging, and Deployment: 22%
@@ -56,13 +77,17 @@
                             name="testDebugDeploy"
                             value={testingScore}
                             onchange={handleChange}
+                            min="0"
+                            max="100"
                             variant="label-hidden"
-                            id="testDebugDeploy">
+                            id="testDebugDeploy"
+                            message-when-range-underflow="Please enter a positive number less than or equal to 100"
+                            message-when-range-overflow="Please enter a positive number less than or equal to 100">
                         </lightning-input>
                     </div>
                 </div>
 
-                <!-- Centered action button -->
+                <!-- Centered Calculate button -->
                 <div class="slds-grid slds-grid_align-center slds-p-vertical_small">
                     <lightning-button 
                         variant="brand" 
@@ -71,12 +96,13 @@
                     </lightning-button>
                 </div>
 
-                <!-- Footer with Certification Results and Final Score -->
+                <!-- Footer with Certification Results and Score -->
                 <div slot="footer" class="slds-text-align_center slds-p-vertical_medium">
-                    <h1 class="slds-text-heading_x-small slds-text-title_caps resultText">
-                        Certification Results
-                    </h1>
-                    <p class="slds-text-heading_small slds-p-top_x-small">
+                    <p class="slds-text-body_small slds-text-title_caps resultText">
+            Certification
+        </p>
+
+                    <p class={scoreClass}>
                         Final Score: {certificationScore}%
                     </p>
 
@@ -87,6 +113,7 @@
                         <li><a href="https://courses.salesforcementor.com/p/salesforce-development-apex-fundamentals" target="_blank">Salesforce Mentor</a></li>
                     </ul>
                 </div>
+
             </lightning-card>
         </div>
     </div>
