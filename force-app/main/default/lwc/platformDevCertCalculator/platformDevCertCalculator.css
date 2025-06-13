@@ -2,6 +2,10 @@
     font-weight: bold;
     font-size: xx-large;
 }
+/* Bold the label text inside lightning-input */
+lightning-input .slds-form-element__label {
+    font-weight: bold;
+}
 
 .resourceLi{
     font-weight: 600;
